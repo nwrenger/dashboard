@@ -22,6 +22,11 @@
 	];
 </script>
 
+<svelte:head>
+	<title>dashboard</title>
+	<meta name="description" content="This is a dashboard of all my up and running websites." />
+</svelte:head>
+
 <div class="container space-y-8 flex flex-col items-center !max-w-6xl mx-auto p-4">
 	<div class="grid grid-cols-2 gap-4 w-full">
 		{#each websites as website}
