@@ -1,9 +1,9 @@
 export let websites = [
 	{
-		name: 'protfolio',
-		title: 'Personal Portfolio',
-		href: 'https://portfolio.nwrenger.dev',
-		description: 'Ideally for visitors who want to know more about me and my projects!',
+		name: 'shitboard',
+		title: 'Shitboard (A Soundboard)',
+		href: 'https://shitboard.nwrenger.dev',
+		description: 'A Chaos-Fueled Soundboard App where creativity and permanence collide!',
 		disabled: false
 	},
 	{
@@ -15,10 +15,10 @@ export let websites = [
 		disabled: false
 	},
 	{
-		name: 'shitboard',
-		title: 'Shitboard (A Soundboard)',
-		href: 'https://shitboard.nwrenger.dev',
-		description: 'A Chaos-Fueled Soundboard App where creativity and permanence collide!',
-		disabled: true
+		name: 'protfolio',
+		title: 'Personal Portfolio',
+		href: 'https://portfolio.nwrenger.dev',
+		description: 'Ideally for visitors who want to know more about me and my projects!',
+		disabled: false
 	}
 ];
