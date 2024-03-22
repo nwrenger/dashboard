@@ -1,11 +1,11 @@
 {
 	"name": "dashboard",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"dev": "bun run gen && vite dev",
 		"build": "bun run gen && vite build",
-		"gen": "bun screenshots.ts",
+		"gen": "bun src/lib/screenshots.ts",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
