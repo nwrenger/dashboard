@@ -1,5 +1,6 @@
 <script>
 	import { websites } from '../lib';
+	import ImageLoader from './ImageLoader.svelte';
 </script>
 
 <svelte:head>
@@ -18,10 +19,12 @@
 			>
 				{#if !website.disabled}
 					<header>
-						<img
+						<ImageLoader
 							src="./{website.name + '.png'}"
-							class="bg-black/50 w-full aspect-[8/3]"
-							alt="img"
+							alt={website.name}
+							rounded="rounded-sm"
+							height=""
+							ratio="aspect-[8/3]"
 						/>
 					</header>
 				{/if}
