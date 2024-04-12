@@ -23,7 +23,7 @@
 							src="./{website.name + '.png'}"
 							alt={website.name}
 							rounded="rounded-sm"
-							height=""
+							height="h-auto"
 							ratio="aspect-[8/3]"
 						/>
 					</header>
