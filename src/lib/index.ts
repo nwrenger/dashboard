@@ -15,7 +15,7 @@ export let websites = [
 		disabled: false
 	},
 	{
-		name: 'protfolio',
+		name: 'portfolio',
 		title: 'Personal Portfolio',
 		href: 'https://portfolio.nwrenger.dev',
 		description: 'Ideally for visitors who want to know more about me and my projects!',

@@ -1,6 +1,7 @@
-<script>
-	import { websites } from '../lib';
+<script lang="ts">
+	import * as Card from '$lib/components/ui/card';
 	import ImageLoader from './ImageLoader.svelte';
+	import { websites } from '$lib';
 </script>
 
 <svelte:head>
@@ -8,31 +9,30 @@
 	<meta name="description" content="This is a dashboard of all my up and running websites." />
 </svelte:head>
 
-<div class="container space-y-8 flex flex-col items-center !max-w-6xl mx-auto p-4">
-	<div class="grid md:grid-cols-2 gap-4 w-full">
-		{#each websites as website}
-			<a
-				class="overflow-hidden block card {!website.disabled
-					? 'card-hover'
-					: 'opacity-50 pointer-events-none'}"
-				href={website.href}
-			>
-				{#if !website.disabled}
-					<header>
-						<ImageLoader
-							src="./{website.name + '.png'}"
-							alt={website.name}
-							rounded="rounded-sm"
-							height="h-auto"
-							ratio="aspect-[8/3]"
-						/>
-					</header>
+<div class="grid w-full gap-4 md:grid-cols-2">
+	{#each websites as { name, title, href, description, disabled }}
+		<a
+			{href}
+			class={!disabled
+				? 'h-full rounded-lg transition-all hover:scale-[1.01] hover:shadow-lg'
+				: 'pointer-events-none opacity-50'}
+			target="_blank"
+		>
+			<Card.Root class="!h-full">
+				{#if !disabled}
+					<ImageLoader
+						src="./{name + '.png'}"
+						alt={name}
+						rounded="rounded-sm"
+						height="h-auto"
+						ratio="aspect-[8/3]"
+					/>
 				{/if}
-				<div class="p-4">
-					<h3 class="h3">{website.title}</h3>
-					<p>{website.description}</p>
-				</div>
-			</a>
-		{/each}
-	</div>
+				<Card.Header>
+					<Card.Title>{title}</Card.Title>
+					<Card.Description>{description}</Card.Description>
+				</Card.Header>
+			</Card.Root>
+		</a>
+	{/each}
 </div>

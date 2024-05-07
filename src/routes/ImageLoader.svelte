@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Skeleton from '$lib/components/ui/skeleton/skeleton.svelte';
 	import { onMount } from 'svelte';
 	export let src: string;
 	export let alt = '';
@@ -20,7 +21,7 @@
 </script>
 
 {#if !loaded}
-	<div class="{base} placeholder animate-pulse" />
+	<Skeleton class="{base} animate-pulse" />
 {/if}
 
 {#if mounted}

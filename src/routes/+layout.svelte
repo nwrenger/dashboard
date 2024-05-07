@@ -1,64 +1,60 @@
-<script lang="ts">
-	import '../app.postcss';
-	import '@fortawesome/fontawesome-free/css/all.css';
-
-	// Floating UI for Popups
-	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import {
-		AppShell,
-		storePopup,
-		type PopupSettings,
-		popup,
-		LightSwitch
-	} from '@skeletonlabs/skeleton';
-	import ImageLoader from './ImageLoader.svelte';
-	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-
-	const app: PopupSettings = {
-		event: 'click',
-		target: 'appContents',
-		placement: 'bottom'
-	};
+<script>
+	import '../app.pcss';
+	import { ModeWatcher, toggleMode } from 'mode-watcher';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	import * as Avatar from '$lib/components/ui/avatar';
+	import { Button } from '$lib/components/ui/button';
+	import { Sun, Moon, Github, User } from 'lucide-svelte';
 </script>
 
-<!-- App Shell -->
-<AppShell>
-	<svelte:fragment slot="pageHeader">
-		<!-- Page Container -->
-		<div class="page-container !max-w-6xl mx-auto grid grid-cols-[1fr_auto] items-center gap-4 p-4">
-			<button type="button" class="btn-icon" use:popup={app} title="dashboard">
-				<ImageLoader src="/favicon.png" alt="dashboard" rounded="rounded-sm" />
-			</button>
+<ModeWatcher disableTransitions={false} />
 
-			<div class="card p-4 w-72 shadow-xl z-10" data-popup="appContents">
-				<div class="space-y-4">
-					<div>
-						<div class="flex">
-							<span class="font-bold flex-auto">dashboard</span>
-							<a
-								class="anchor"
-								href="https://github.com/nwrenger/dashboard"
-								target="_blank"
-								title="Repository"><i class="fa-solid fa-up-right-from-square" /></a
-							>
-						</div>
-						<div class="flex">
-							<span class="opacity-50 flex-auto">nwrenger</span>
-							<a class="anchor" href="https://github.com/nwrenger" target="_blank" title="Profile"
-								><i class="fa-solid fa-up-right-from-square" /></a
-							>
-						</div>
-					</div>
-					<p>This is a dashboard of all my up and running websites.</p>
-				</div>
-				<div class="arrow bg-surface-100-800-token" />
+<header
+	class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+>
+	<div class="container max-w-6xl pl-4 pr-4">
+		<div class="flex h-[70px] items-center justify-between gap-3">
+			<div class="flex items-center gap-1.5">
+				<DropdownMenu.Root>
+					<DropdownMenu.Trigger>
+						<Avatar.Root>
+							<Avatar.Image src="favicon.png" alt="dashboard" />
+							<Avatar.Fallback>DB</Avatar.Fallback>
+						</Avatar.Root>
+					</DropdownMenu.Trigger>
+					<DropdownMenu.Content>
+						<DropdownMenu.Group>
+							<DropdownMenu.Label>
+								<a href="/" class="hover:underline" data-sveltekit-reload>dashboard</a>
+							</DropdownMenu.Label>
+							<DropdownMenu.Separator />
+							<DropdownMenu.Item href="https://github.com/nwrenger/dashboard" target="_blank">
+								<Github class="mr-2 h-4 w-4" />
+								<span>Github</span>
+							</DropdownMenu.Item>
+							<DropdownMenu.Item href="https://github.com/nwrenger" target="_blank">
+								<User class="mr-2 h-4 w-4" />
+								<span>Profile</span>
+							</DropdownMenu.Item>
+						</DropdownMenu.Group>
+					</DropdownMenu.Content>
+				</DropdownMenu.Root>
 			</div>
-			<LightSwitch
-				class="bg-surface-50/50 dark:bg-surface-900/50 backdrop-blur-xl shadow-xl"
-				ring="ring-none"
-			/>
+			<div class="flex items-center justify-end gap-2.5">
+				<Button on:click={toggleMode} variant="outline" size="icon">
+					<Sun
+						class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+					/>
+					<Moon
+						class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+					/>
+					<span class="sr-only">Toggle theme</span>
+				</Button>
+			</div>
 		</div>
-	</svelte:fragment>
-	<!-- Page Route Content -->
+	</div>
+</header>
+
+<div class="container mx-auto flex max-w-6xl flex-col items-center space-y-8 p-4 text-center">
 	<slot />
-</AppShell>
+</div>
