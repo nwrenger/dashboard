@@ -14,7 +14,7 @@
 		<a
 			{href}
 			class={!disabled
-				? 'rounded-lg outline-none transition-all hover:scale-[1.01] hover:shadow-lg'
+				? 'overflow-hidden rounded-lg outline-none transition-all hover:scale-[1.01] hover:shadow-lg'
 				: 'pointer-events-none opacity-50 outline-none'}
 			target="_blank"
 		>
@@ -23,7 +23,7 @@
 					<ImageLoader
 						src="./{name + '.png'}"
 						alt={name}
-						rounded="rounded-sm"
+						rounded="rounded-t-md"
 						height="h-auto"
 						ratio="aspect-[8/3]"
 					/>
