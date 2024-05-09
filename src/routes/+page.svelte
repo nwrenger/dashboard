@@ -23,7 +23,7 @@
 					<ImageLoader
 						src="./{name + '.png'}"
 						alt={name}
-						rounded="rounded-t-md"
+						rounded="rounded-t-[7px]"
 						height="h-auto"
 						ratio="aspect-[8/3]"
 					/>
