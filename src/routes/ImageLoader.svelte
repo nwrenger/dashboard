@@ -25,10 +25,5 @@
 {/if}
 
 {#if mounted}
-	<img
-		{src}
-		{alt}
-		on:load={handleLoad}
-		class="{base} object-cover shadow-md {!loaded ? 'hidden' : ''}"
-	/>
+	<img {src} {alt} on:load={handleLoad} class="{base} object-cover {!loaded ? 'hidden' : ''}" />
 {/if}
