@@ -14,11 +14,11 @@
 		<a
 			{href}
 			class={!disabled
-				? 'h-full rounded-lg transition-all hover:scale-[1.01] hover:shadow-lg'
-				: 'pointer-events-none opacity-50'}
+				? 'rounded-lg outline-none transition-all hover:scale-[1.01] hover:shadow-lg'
+				: 'pointer-events-none opacity-50 outline-none'}
 			target="_blank"
 		>
-			<Card.Root class="!h-full">
+			<Card.Root class="h-full">
 				{#if !disabled}
 					<ImageLoader
 						src="./{name + '.png'}"
