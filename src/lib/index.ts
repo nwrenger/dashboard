@@ -1,5 +1,12 @@
 export let websites = [
 	{
+		name: 'flip',
+		title: 'Flip UI Buider',
+		href: 'https://flip.nwrenger.dev',
+		description: 'The UI Builder for the Flipperzero, you\'ll be able to effortlessly design and export user interfaces!',
+		disabled: false
+	},
+	{
 		name: 'shitboard',
 		title: 'Shitboard (A Soundboard)',
 		href: 'https://shitboard.nwrenger.dev',
