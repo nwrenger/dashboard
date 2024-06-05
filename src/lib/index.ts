@@ -22,7 +22,7 @@ export let websites = [
 	},
 	{
 		name: 'quickmaths',
-		title: 'Math Practicing Website',
+		title: 'Math Practicing Website v2',
 		href: 'https://quickmaths.nwrenger.dev',
 		description:
 			'Want to improve your skills at maths, especially at calculations, this is the best place for that!',
