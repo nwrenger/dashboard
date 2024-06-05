@@ -1,7 +1,14 @@
 export let websites = [
 	{
+		name: 'chadmaths',
+		title: 'Math Practicing Website v3',
+		href: 'https://chadmaths.nwrenger.dev',
+		description: 'ChadMaths represents the next generation of math learning tools, evolving significantly beyond the capabilities of QuickMaths!',
+		disabled: false
+	},
+	{
 		name: 'flip',
-		title: 'Flip UI Buider',
+		title: 'Flip UI Builder',
 		href: 'https://flip.nwrenger.dev',
 		description: 'The UI Builder for the Flipperzero, you\'ll be able to effortlessly design and export user interfaces!',
 		disabled: false
